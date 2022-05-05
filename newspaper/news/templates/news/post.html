@@ -1,0 +1,17 @@
+{% extends 'news/base.html' %}
+{% load custom_filter %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container px-5">
+<div class="card">
+  <div class="card-header">
+    {{ post.dateCreation|date:"j F Y" }}
+  </div>
+  <div class="card-body mx-3">
+    <h5 class="card-title text-center"><b>{{ post.title|censor }}</b></h5>
+    <p class="card-text"><i>{{ post.text|censor }}</i></p>
+    <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm">К списку публикации</a>
+  </div>
+</div>
+  </div>{% endblock %}
