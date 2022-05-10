@@ -1,0 +1,24 @@
+{% extends 'news/index.html' %}
+{% load custom_filter %}
+{% block title %}Deleting {{ deletenews.title }}{% endblock title %}
+
+{% block content %}
+<div class="container px-5">
+<div class="card">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body mx-3">
+    <h5 class="card-title text-center"><b>Delete?</b></h5>
+    <p class="card-text"><form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+          {% comment %}
+          <!--<a href="{% url 'clientnew' %}" class="btn btn-success mt-1">new</a>-->
+          {% endcomment %}
+      <button type="submit" class="btn btn-success mt-1">Готово!</button>
+      </form></p>
+    <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm">К списку публикации</a>
+  </div>
+</div>
+  </div>{% endblock content %}
